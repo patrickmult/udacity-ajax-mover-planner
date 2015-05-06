@@ -2,7 +2,7 @@
 body {background-color: #CCC;}
 
 .bgimg {
-    position:fixed;
+    position:fixed center;
     top: 0;
     left: 0;
     width:100%;
@@ -42,4 +42,14 @@ body {background-color: #CCC;}
 }
 .article:first-child {
     border-top:none;
+}
+
+#bodycontainer {
+    margin: 0 auto;
+    width: 60%;
+    height: 600px;
+    border: 1px black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
 }
