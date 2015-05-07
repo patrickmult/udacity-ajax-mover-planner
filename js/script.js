@@ -6,7 +6,8 @@ function loadData() {
     var $nytHeaderElem = $('#nytimes-header');
     var $nytElem = $('#nytimes-articles');
     var $greeting = $('#greeting');
-    var $bodycontainer = $('#bodycontainer')
+    var $bodycontainer = $('#bodycontainer');
+    var $wikiHeaderElem = $('#wikipedia-header');
 
     // clear out old data before new request
     $wikiElem.text("");
@@ -37,6 +38,26 @@ function loadData() {
         }
     }).error(function(e){
         $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');   
+    });
+
+    var wikiURL = "http://en.wikipedia.org/w/api.php?action=opensearch&search="+ cityStr + "&limit=10&namespace=0&format=json"
+
+    $.ajax({
+        dataType: "jsonp",
+        url: wikiURL,
+        //jsonp: callback
+        success: function (response) {
+            console.log(response);
+            var articleList = response[1];
+
+            for (var i=0;i<articleList.length; i++) {
+                articleStr = articleList[i];
+                var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+                $wikiElem.append('<li><a href="'+url+'">' + articleStr + '</a></li>');
+            };
+        }
+    }).error(function(e){
+        $wikiHeaderElem.text('Wikipedia Articles Could Not Be Loaded');   
     });
 
     return false;
