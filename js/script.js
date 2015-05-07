@@ -22,8 +22,8 @@ function loadData() {
 
     var streetviewURL = "https://maps.googleapis.com/maps/api/streetview?size=640x400&location=" + address;
     $(bodycontainer).css('background-image', 'url("'+ streetviewURL + '")');
-    // NYT API AJAX request
 
+    // NYT API AJAX request
     var nytimeURL= "http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ cityStr + "&sort=newest&api-key=39bb6196e774f3c3ab07ea39de138a6c:9:72021044"
 
     $.getJSON(nytimeURL, function(data) {
@@ -40,6 +40,7 @@ function loadData() {
         $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');   
     });
 
+    //Wiki API AJAX request
     var wikiURL = "http://en.wikipedia.org/w/api.php?action=opensearch&search="+ cityStr + "&limit=10&namespace=0&format=json"
 
     $.ajax({

@@ -1,5 +1,13 @@
 * {box-sizing:border-box;}
-body {background-color: #CCC;}
+body {
+    background-color: #CCC;
+    background-image: url("../img/concrete_seamless.png");
+}
+
+#headercontainer {
+    background-color: none;
+    padding-top:20px;
+}
 
 .form-container {
     margin-top: 50px;
