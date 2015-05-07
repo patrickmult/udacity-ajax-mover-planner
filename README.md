@@ -1,5 +1,5 @@
 # udacity-ajax-mover-planner
-A one page mini proeject for practice using jQuery AJAX queries to public APIs.<br>
+A one page mini project for practice using jQuery AJAX queries to public APIs.<br>
 Source material: https://www.udacity.com/course/viewer#!/c-ud110/l-3310298553/m-3180658598
 
 After filling out the  "Where are you moving?" fields and hitting submit the wepage updates to display: <br>

@@ -17,9 +17,25 @@ function loadData() {
     var cityStr = $('#city').val();
     var address = streetStr + ', ' + cityStr;
 
+    $greeting.text('So, you want to live at ' + address + '?');
+
     var streetviewURL = "https://maps.googleapis.com/maps/api/streetview?size=640x400&location=" + address;
     $(bodycontainer).css('background-image', 'url("'+ streetviewURL + '")');
-    // YOUR CODE GOES HERE!
+    // NYT API AJAX request
+
+    var nytimeURL= "http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+ cityStr + "&sort=newest&api-key=39bb6196e774f3c3ab07ea39de138a6c:9:72021044"
+
+    $.getJSON(nytimeURL, function(data) {
+        console.log(data);
+        var articles = data.response.docs;
+        for (var i=0;i<articles.length;i++) {
+            var article = articles[i];
+            $nytElem.append('<li class="article">'+
+                '<a href="'+article.web_url+'">'+article.headline.main + '</a>' +
+                '<p>'+ article.snippet + '</p>'+
+                '</li>');
+        }
+    });
 
     return false;
 };
