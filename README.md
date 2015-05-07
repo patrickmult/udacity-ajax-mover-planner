@@ -11,5 +11,5 @@ After filling out the  "Where are you moving?" fields and hitting submit the wep
 To try it: Clone the repository and open index.html
 
 Note: Work in progress still <br>
-Done: Google Street View <br>
-To-do: NYT & Wiki
+Done: Google Street View, New York Times Articles <br>
+To-do: Wiki Articles
